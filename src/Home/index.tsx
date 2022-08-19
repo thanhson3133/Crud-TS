@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useState } from "react";
+import FormComponent from "../components/Form";
+import { List } from "../components/List";
+import { IState } from "../interface/person";
+import "./index.css";
 
 export default function Homeaa() {
+
+  const [person, setPerson] = useState<IState["person"]>([
+    { name: "son", age: 22, bio: "developer" },
+    { name: "son", age: 22, bio: "developer" },
+    { name: "son", age: 22, bio: "developer" },
+    { name: "son", age: 22, bio: "developer" },
+  ]);
+
   return (
-    <div className="p-10 min-h-screen flex items-center justify-center bg-cool-gray-700">
-      <h1 className="text-9xl font-black text-white text-center">
-        <span className="bg-gradient-to-r text-transparent bg-clip-text from-green-400 to-purple-500">
-          Sơn
-        </span>
-      </h1>
+    <div className="container">
+      <FormComponent person={person} setPerson={setPerson} />
+      <List person={person} />
     </div>
-  )
+  );
 }
